@@ -1,0 +1,38 @@
+﻿@using PhotoBlog.Models
+@model List<Photo>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Photos</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Head</th>
+            <th>Description</th>
+            <th>Tags</th>
+            <th>Date Time</th>
+            <th>@Html.Display("image")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var photo in Model)
+        {
+            <tr>
+                <td>@photo.Id</td>
+                <td>@photo.Head</td>
+                <td>@photo.Description</td>
+                <td>@photo.TagsName</td>
+                <td>@photo.DateTime</td>
+                <td>
+                    <img src="@photo.Path" alt="@photo.Head" style="width:100px; height:100px;"/>
+                </td>
+                <td><a href="@Url.Action("Delete","Photo",new {@class="btn btn-primary btn-sm",id=photo.Id})"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a href="@Url.Action("Edit","Photo",new {@class="btn btn-warning btn-sm",id=photo.Id })"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

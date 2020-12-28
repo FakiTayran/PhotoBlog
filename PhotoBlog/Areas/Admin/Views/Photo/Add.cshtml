@@ -1,0 +1,28 @@
+﻿@using PhotoBlog.Models
+@model PhotoViewModel
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Add", "Photo", FormMethod.Post, new {enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(x => x.Head)
+    @Html.TextBoxFor(x => x.Head, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.Description)
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.Path)
+    @Html.TextBox("file", null, new { type = "file", @class = "form-control" })
+
+    @Html.LabelFor(x=>x.Tags)
+        @Html.ListBox("tags", (MultiSelectList)ViewBag.Tags,new {@class = "form-control"})
+
+    <br />
+    <br />
+    <br />
+    <button type="submit" class="form-control btn-success">Add</button>
+}
+

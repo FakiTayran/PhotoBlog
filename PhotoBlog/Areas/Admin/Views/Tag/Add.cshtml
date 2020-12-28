@@ -1,0 +1,13 @@
+﻿@using PhotoBlog.Models
+@model TagViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Add Tag</h2>
+
+@using (@Html.BeginForm("Add", "Tag", FormMethod.Post))
+    {
+        @Html.TextBoxFor(x => x.Name)
+        <button type="submit">Save</button>
+    }

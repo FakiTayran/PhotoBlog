@@ -1,0 +1,15 @@
+﻿@using PhotoBlog.Models
+@model Tag
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+@using (Html.BeginForm("Delete","Tag", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    <p>&quot;@Model.Name&quot; are you sure delete this Tag?</p>
+    <button type="submit">Delete</button>
+    @Html.ActionLink("Cancel", "Index")
+}

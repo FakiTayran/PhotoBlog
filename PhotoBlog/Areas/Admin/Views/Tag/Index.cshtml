@@ -1,0 +1,31 @@
+﻿@using PhotoBlog.Models
+@model List<Tag>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tags</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tag Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <td>@tag.Name</td>
+                <td><a href="@Url.Action("Delete","Tag",new {id = tag.Id })" class="btn btn-primary btn-sm"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a href="@Url.Action("Edit","Tag",new {id = tag.Id })" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
