@@ -97,6 +97,10 @@ namespace PhotoBlog.Areas.Admin.Controllers
                 photo.Path = path;
                 file.SaveAs(Server.MapPath("~") + path);
             }
+            else
+            {
+                photo.Path = db.Photos.FirstOrDefault(x => x.Id == photo.Id).Path;
+            }
             if (etiketler != null)
             {
                 foreach (var tag in etiketler)

@@ -9,7 +9,7 @@
     <div class="head">
         <h2 class="mt-0 mb-5 text-secondary">Welcome to My Photo Blog </h2>
     </div>
-    @foreach (var photo in Model)
+    @foreach (var photo in Model.OrderByDescending(x=>x.Id))
     {
     <div class="content">
         <div class="head">
